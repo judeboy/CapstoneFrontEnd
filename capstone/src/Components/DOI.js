@@ -3,19 +3,19 @@ import '../Header.css';
 
 
 
-class DOD extends Component {
+class DOI extends Component {
   render() {
-    let DOD = this.props.programs
+    let DOI = this.props.programs
     let result = [];
-    DOD.map(programs => {
-      if(programs.AgencyShort === "DOD"){
+    DOI.map(programs => {
+      if(programs.AgencyShort === "DOI"){
         return result.push(programs)
       }
     })
     console.log("result", result);
 
     return (
-      <div className="AgencyByShort"> DOD Programs
+      <div className="AgencyByShort"> DOI Programs
         {result.map(ele=>{
           return(
             <div>
@@ -30,4 +30,4 @@ class DOD extends Component {
 
   }
 }
-export default DOD;
+export default DOI;

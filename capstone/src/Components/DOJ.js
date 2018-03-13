@@ -7,7 +7,7 @@ class DOJ extends Component {
   render() {
     let DOJ = this.props.programs
     let result = [];
-    DOJ.map(programs => {
+    DOJ.forEach(programs => {
       if(programs.AgencyShort === "DOJ"){
         return result.push(programs)
       }

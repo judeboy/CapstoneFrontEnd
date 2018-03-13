@@ -5,7 +5,7 @@ class HHS extends Component {
   render() {
     let HHS = this.props.programs
     let result = [];
-    HHS.map(programs => {
+    HHS.forEach(programs => {
       if(programs.AgencyShort === "HHS"){
         return result.push(programs)
       }

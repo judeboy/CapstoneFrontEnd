@@ -7,7 +7,7 @@ class DOI extends Component {
   render() {
     let DOI = this.props.programs
     let result = [];
-    DOI.map(programs => {
+    DOI.forEach(programs => {
       if(programs.AgencyShort === "DOI"){
         return result.push(programs)
       }

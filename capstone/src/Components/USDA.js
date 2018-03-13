@@ -7,7 +7,7 @@ class USDA extends Component {
   render() {
     let USDA = this.props.programs
     let result = [];
-    USDA.map(programs => {
+    USDA.forEach(programs => {
       if(programs.AgencyShort === "USDA"){
         return result.push(programs)
       }

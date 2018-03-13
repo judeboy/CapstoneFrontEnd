@@ -7,7 +7,7 @@ class HUD extends Component {
   render() {
     let HUD = this.props.programs
     let result = [];
-    HUD.map(programs => {
+    HUD.forEach(programs => {
       if(programs.AgencyShort === "HUD"){
         return result.push(programs)
       }

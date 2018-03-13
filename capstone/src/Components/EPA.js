@@ -7,7 +7,7 @@ class EPA extends Component {
   render() {
     let EPA = this.props.programs
     let result = [];
-    EPA.map(programs => {
+    EPA.forEach(programs => {
       if(programs.AgencyShort === "EPA"){
         return result.push(programs)
       }

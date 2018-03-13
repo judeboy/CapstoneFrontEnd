@@ -7,7 +7,7 @@ class DOC extends Component {
   render() {
     let DOC = this.props.programs
     let result = [];
-    DOC.map(programs => {
+    DOC.forEach(programs => {
       if(programs.AgencyShort === "DOC"){
         return result.push(programs)
       }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-// import './App.css';
+import './App.css';
+import tiles from './menuTiles.json'
 import Header from './Components/Header';
+import Menu from './Components/Menu';
 import DOD from './Components/DOD';
 import HHS from './Components/HHS';
 import DOI from './Components/DOI';
@@ -18,8 +20,7 @@ class App extends Component {
     super(props)
     this.state = {
       greeting: 'Hello',
-      programs: [],
-      filteredProgram: []
+      programs: []
     }
   }
 
@@ -35,6 +36,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header greeting={this.state.greeting} name="Judah"/>
+        <Menu />
         {/* <DOD programs={this.state.programs} /> */}
         {/* <HHS programs={this.state.programs}/> */}
         {/* <DOI programs={this.state.programs} /> */}
@@ -44,7 +46,7 @@ class App extends Component {
         {/* <ED programs={this.state.programs} /> */}
         {/* <DOT programs={this.state.programs} /> */}
         {/* <EPA programs={this.state.programs} /> */}
-        <DOC programs={this.state.programs} />
+        {/* <DOC programs={this.state.programs} /> */}
       </div>
     );
   }

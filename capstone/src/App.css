@@ -1,3 +1,4 @@
+
 .App {
   border: 2px solid black;
   text-align: center;
@@ -5,4 +6,18 @@
   color: #333;
   margin: 20px;
   padding: 20px;
+}
+
+.MenuDivs {
+  padding-left: 5%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.Landing .App {
+ background-color: lightgreen;
+ /* background-image: url('./public/flamingo.jpg'); */
+ /* height: 50vh;
+ width: 50vh; */
 }

@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import '../App.css';
-import flamingo from '../public/flamingo.jpg';
-import boat from '../public/boat.jpg';
+import flamingo from '../images/flamingo.jpg';
+import boat from '../images/boat.jpg';
+import justice from '../images/justice.png'
+import epa from '../images/factory.png'
+import hhs from '../images/hhs.png'
+import doi from '../images/doi.png'
+import coin from '../images/coin.png'
+import dod from '../images/dod.png'
+import book from '../images/book.png'
+import doa from '../images/doa.png'
+import city from '../images/city.png'
+import car from '../images/car.png'
 import Card from './Card.js'
-import tiles from '../menuTiles.json'
 
 
 
@@ -14,16 +23,16 @@ class Menu extends Component {
       <div className="Landing">
         <h1>Choose from one of the panes below</h1>
         <div className="MenuDivs">
-          <Card title={'Environmental Protection Agency'} image={flamingo}/>
-          <Card title={'Health & Human Services'} image={boat}/>
-          <Card title={'Dept of Interior'} image={boat}/>
-          <Card title={'Dept of Commerce'} image={boat}/>
-          <Card title={'Dept of Defense'} image={boat}/>
-          <Card title={'Dept of Justice'} image={boat}/>
-          <Card title={'Dept of Defense'} image={boat}/>
-          <Card title={'US Dept of Agriculture'} image={boat}/>
-          <Card title={'Housing & Urban Development'} image={boat}/>
-          <Card title={'Dept of Transportation'} image={boat}/>
+          <Card title={'Env Protection Agency'} image={epa}/>
+          <Card title={'Health & Human Services'} image={hhs}/>
+          <Card title={'Dept of Interior'} image={doi}/>
+          <Card title={'Dept of Commerce'} image={coin}/>
+          <Card title={'Dept of Education'} image={book}/>
+          <Card title={'Dept of Justice'} image={justice}/>
+          <Card title={'Dept of Defense'} image={dod}/>
+          <Card title={'US Dept of Agriculture'} image={doa}/>
+          <Card title={'Housing & Urban Development'} image={city}/>
+          <Card title={'Dept of Transportation'} image={car}/>
         </div>
       </div>
     );

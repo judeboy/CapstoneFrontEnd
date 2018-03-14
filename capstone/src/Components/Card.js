@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css';
 import '../Card.css';
-import tiles from '../menuTiles.json'
-import flamingo from '../public/flamingo.jpg';
-import boat from '../public/boat.jpg'
+
+
 
 
 class Card extends Component {

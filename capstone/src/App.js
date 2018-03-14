@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import tiles from './menuTiles.json'
 import Header from './Components/Header';
 import Menu from './Components/Menu';
 import DOD from './Components/DOD';
@@ -36,10 +35,10 @@ class App extends Component {
     return (
       <div className="App">
         <Header greeting={this.state.greeting} name="Judah"/>
-        <Menu />
+        {/* <Menu /> */}
         {/* <DOD programs={this.state.programs} /> */}
         {/* <HHS programs={this.state.programs}/> */}
-        {/* <DOI programs={this.state.programs} /> */}
+        <DOI programs={this.state.programs} />
         {/* <USDA programs={this.state.programs}/> */}
         {/* <DOJ programs={this.state.programs} /> */}
         {/* <HUD programs={this.state.programs} /> */}

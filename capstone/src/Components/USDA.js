@@ -4,19 +4,39 @@ import '../Header.css';
 
 
 class USDA extends Component {
-  render() {
-    let USDA = this.props.programs
-    let result = [];
-    USDA.forEach(programs => {
-      if(programs.AgencyShort === "USDA"){
-        return result.push(programs)
-      }
-    })
-    console.log("result", result);
+  constructor(props){
+    super(props)
+    this.state={
+      search : '',
+      result : []
+    }
+  }
 
+  // let result = [];
+  // USDA.forEach(programs => {
+  //   if(programs.AgencyShort === "USDA"){
+  //     result.push(programs)
+  //   }
+  // })
+
+  // updateSearch(event){
+  //   let filteredProgs = result.filter(
+  //     (program) => {
+  //       return program.ProgTitle.indexOf(this.state.search) != -1;
+  //       this.setState({result: filteredProgs})
+  //     })
+  //     // console.log('result array', result);
+  //     // console.log(filteredProgs);
+  //   this.setState({search: event.target.value})
+  // }
+
+  render() {
+    console.log(this.props);
     return (
-      <div className="AgencyByShort"> USDA Programs
-        {result.map(ele=>{
+      <div className="AgencyByShort"> USDA Programs<br></br>
+        <input type='text' value={this.state.search} onChange={this.updateSearch.bind(this)} />
+
+        {this.state.result.map(ele=>{
           return(
             <div>
               <div>{ele.ProgTitle}</div>

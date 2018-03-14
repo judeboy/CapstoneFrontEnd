@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {
+  Route,
+  Link
+} from 'react-router-dom'
 import '../App.css';
 import flamingo from '../images/flamingo.jpg';
 import boat from '../images/boat.jpg';
@@ -29,7 +33,9 @@ class Menu extends Component {
           <Card title={'Dept of Commerce'} image={coin}/>
           <Card title={'Dept of Education'} image={book}/>
           <Card title={'Dept of Justice'} image={justice}/>
-          <Card title={'Dept of Defense'} image={dod}/>
+          <Link to='/dod'>
+            <Card key="DODcard" title={'Dept of Defense'} image={dod}/>
+          </Link>
           <Card title={'US Dept of Agriculture'} image={doa}/>
           <Card title={'Housing & Urban Development'} image={city}/>
           <Card title={'Dept of Transportation'} image={car}/>

@@ -5,6 +5,7 @@ import {moveCard} from './Game'
 
 const listTarget = {
     drop: function (props, monitor){
+      console.log('listTarget props', props);
         moveCard(props.number)
     }
 }

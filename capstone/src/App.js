@@ -25,7 +25,7 @@ class App extends Component {
       mounted:false,
       // programs: {},
       // urls: {},
-      type: 'USDA',
+      type: 'DOD',
       matchingPrograms: [],
     }
   }
@@ -33,8 +33,10 @@ class App extends Component {
   async componentDidMount() {
     const response = await fetch('https://judahhh.herokuapp.com/')
     const json = await response.json()
+
     const matchingPrograms = json.filter(program => program.AgencyShort === this.state.type);
-    console.log('matchingPrograms innit : ', matchingPrograms);
+
+    // console.log('matchingPrograms innit : ', matchingPrograms);
     this.setState({ matchingPrograms });
     // this.organizeProgs(json);
     // this.organizeURLs(json)
@@ -43,61 +45,59 @@ class App extends Component {
     })
   }
 
-  organizeURLs(json){
-    let obj = {}
-    let urls = json
-    for (let i in urls){
-      if (!obj[urls[i].AgencyShort]){
-        obj[urls[i].AgencyShort] = [urls[i].WebURL]
-      } else {
-        obj[urls[i].AgencyShort].push(urls[i].WebURL)
-        this.setState({urls: obj})
-      }
-    }
-  }
-
-  organizeProgs(json){
-    // console.log('organizeProgs');
-    let obj = {}
-    let progs = json
-    // console.log("progs", progs);
-    for (let i in progs){
-      // console.log("i", progs[i].AgencyShort, progs[i].ProgTitle);
-      if (!obj[progs[i].AgencyShort]){
-        obj[progs[i].AgencyShort] = [progs[i].ProgTitle]
-        // obj[progs[i].AgencyShort] = [progs[i].ProgTitle]
-      } else {
-        obj[progs[i].AgencyShort].push(progs[i].ProgTitle)
-        this.setState({programs: obj})
-      }
-    }
-    // console.log("function Object", this.state.programs.DOD)
-  }
+  // organizeURLs(json){
+  //   let obj = {}
+  //   let urls = json
+  //   for (let i in urls){
+  //     if (!obj[urls[i].AgencyShort]){
+  //       obj[urls[i].AgencyShort] = [urls[i].WebURL]
+  //     } else {
+  //       obj[urls[i].AgencyShort].push(urls[i].WebURL)
+  //       this.setState({urls: obj})
+  //     }
+  //   }
+  // }
+  // organizeProgs(json){
+  //   // console.log('organizeProgs');
+  //   let obj = {}
+  //   let progs = json
+  //   // console.log("progs", progs);
+  //   for (let i in progs){
+  //     // console.log("i", progs[i].AgencyShort, progs[i].ProgTitle);
+  //     if (!obj[progs[i].AgencyShort]){
+  //       obj[progs[i].AgencyShort] = [progs[i].ProgTitle]
+  //       // obj[progs[i].AgencyShort] = [progs[i].ProgTitle]
+  //     } else {
+  //       obj[progs[i].AgencyShort].push(progs[i].ProgTitle)
+  //       this.setState({programs: obj})
+  //     }
+  //   }
+  //   // console.log("function Object", this.state.programs.DOD)
+  // }
 
   renderList = (number, matchingPrograms) => {
-          var piece = null;
-          if(this.props.cardPosition === number){
-              piece = <Card />
-          }
+    var piece = null;
+    if(this.props.cardPosition === number){
+        piece = <Card />
+    }
+    // console.log('matchingPrograms', matchingPrograms);
+    return (
+      <TrelloColumn number={number}>
+          {matchingPrograms ? matchingPrograms.map(program => <Card {...program} />) : null}
+      </TrelloColumn>
+    )
+    }
 
-          console.log('matchingPrograms', matchingPrograms);
-          return (
-              <TrelloColumn number={number}>
-                  {matchingPrograms ? matchingPrograms.map(program => <Card {...program} />) : null}
-              </TrelloColumn>
-          )
-      }
-
-      render(){
-          return(
-              <div id='containerOfColumns'>
-                  {this.renderList('one', this.state.matchingPrograms)}
-                  {this.renderList('two')}
-                  {this.renderList('three')}
-                  {this.renderList('four')}
-              </div>
-          )
-      }
+  render(){
+    return(
+      <div id='containerOfColumns'>
+          {this.renderList('one', this.state.matchingPrograms)}
+          {this.renderList('two')}
+          {this.renderList('three')}
+          {this.renderList('four')}
+      </div>
+    )
+  }
 
 }; //App Component
 

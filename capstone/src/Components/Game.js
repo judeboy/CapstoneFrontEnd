@@ -1,5 +1,4 @@
-
-let cardPosition = null;
+let cardPosition = 'one';
 let observer = null;
 
 export function observe(o){

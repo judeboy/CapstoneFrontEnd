@@ -4,7 +4,8 @@ import '../Card.css'
 
 const cardSource = {
     beginDrag: function (props, monitor){
-        return {cardId: 1}
+      console.log('card props', props);
+        return {cardId: props.cardId}
     }
 }
 
@@ -18,10 +19,10 @@ function collection(connect, monitor){
 class Card extends Component{
     render(){
         const {connectDragSource, isDragging} = this.props
-
         return connectDragSource(
-            <div key={this.props.ProgNumber} url={this.props.WebURL} className='singleProgram'>
+            <div className='singleProgram'>
               {this.props.ProgTitle}
+              {this.props.WebURL}
             </div>
         )
     }

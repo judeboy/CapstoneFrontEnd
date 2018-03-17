@@ -1,22 +1,35 @@
-import React, { Component } from 'react';
-import '../App.css';
-import '../Card.css';
+import React, {Component} from 'react'
+import { DragSource } from 'react-dnd';
+import '../Card.css'
 
-
-
-
-class Card extends Component {
-    render(){
-      return (
-        <div>
-           <div className="card">
-            <h3>{this.props.title}</h3>
-            <img id='rcorners3' src={this.props.image}></img>
-          </div>
-        </div>
-      )
+const cardSource = {
+    beginDrag: function (props, monitor){
+        return {cardId: 1}
     }
-  }
+}
 
+function collection(connect, monitor){
+    return {
+        connectDragSource: connect.dragSource(),
+        isDragging: monitor.isDragging()
+    }
+}
 
-export default Card;
+class Card extends Component{
+    render(){
+        const {connectDragSource, isDragging} = this.props
+        return connectDragSource(
+            <div style={{
+                background: 'purple',
+                height: '200px',
+                width: '200px',
+                fontSize:'200px',
+                border:'5px solid black'
+            }}>
+                &#x2665;
+            </div>
+        )
+    }
+}
+
+export default DragSource('card', cardSource, collection)(Card)

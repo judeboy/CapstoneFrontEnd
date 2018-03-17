@@ -13,7 +13,7 @@
 
 }
 
-.MenuDivs a {
+.MenuDivs {
   padding-left: 5%;
   position: relative;
   display: flex;
@@ -22,24 +22,17 @@
   background: none;
 }
 
-.ProgResult{
+.ProgTitleText{
   text-transform: uppercase;
   padding-top: 10px;
 }
 
-.LinkResult{
+.ProgTitleLink{
   padding-top: 50px;
 }
 
-.ResultDiv{
-  border: thin solid black;
-  background-color: #221f1f;
-  width: 300px;
-  height: 300px;
-  margin: 10px;
-}
 
-.AgencyByShort{
+.divOfProgs{
   justify-content: center;
   display: flex;
   flex-flow: row;

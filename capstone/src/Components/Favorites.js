@@ -1,18 +1,33 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { DragSource } from 'react-dnd';
+import React, {Component} from 'react'
+import {DropTarget} from 'react-dnd'
+import {moveCard} from './Game'
 
-
-import '../Header.css';
-
-
-
-class Favorites extends Component {
-render() {
-    return (
-      <div id='favoritesDiv'> Favorites
-      </div>
-    );
-  }
+const listTarget = {
+    drop: function (props, monitor){
+        moveCard(props.number)
+    }
 }
-export default Favorites;
+
+function collect(connect, monitor){
+    return{
+        connectDropTarget: connect.dropTarget()
+    }
+}
+
+class Favorites extends Component{
+    render(){
+        const {connectDropTarget} = this.props
+        return connectDropTarget(
+            <div style={{
+                border: "2px solid black",
+                backgroundColor: 'gray',
+                width: '300px',
+                height: '600px'
+            }}>
+                {this.props.children}
+            </div>
+        )
+    }
+}
+
+export default DropTarget('card', listTarget, collect)(Favorites)

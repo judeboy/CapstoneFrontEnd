@@ -5,28 +5,23 @@ import {
   BrowserRouter as Router,
 } from 'react-router-dom'
 import PropTypes from 'prop-types';
-import { DragSource } from 'react-dnd';
-import HTML5
+
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
 import './App.css';
 import Header from './Components/Header';
 import Menu from './Components/Menu';
-import DOD from './Components/DOD';
-import HHS from './Components/HHS';
-import DOI from './Components/DOI';
-import USDA from './Components/USDA';
 import Favorites from './Components/Favorites';
-import HUD from './Components/HUD';
-import ED from './Components/ED';
-import SBA from './Components/SBA';
-import EPA from './Components/EPA';
-import DOC from './Components/DOC';
+import Card from './Components/Card'
+
 
 
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
+      ids: [],
       greeting: 'Hello',
       programs: {},
       urls: {},
@@ -57,6 +52,19 @@ class App extends Component {
     }
   }
 
+  organizeIds(json){
+    let obj = {}
+    let ids = json
+    for (let i in ids){
+      if (!obj[ids[i].AgencyShort]){
+        obj[ids[i].AgencyShort] = [ids[i].id]
+      } else {
+        obj[ids[i].AgencyShort].push(ids[i].id)
+        this.setState({ids: obj})
+      }
+    }
+  }
+
   organizeProgs(json){
     // console.log('organizeProgs');
     let obj = {}
@@ -75,47 +83,33 @@ class App extends Component {
     // console.log("function Object", this.state.programs.DOD)
   }
 
-  render() {
-    return (
-      <Router>
-        <div className="App">
-          <Header greeting={this.state.greeting} name="Judah"/>
-          <Favorites mounted={this.state.mounted}/>
-          <Route exact path="/" render={() => (
-            <Menu  />
-            )}/>
-          <Route exact path="/dod" render={() => (
-            <DOD programs={this.state.programs.DOD} urls={this.state.urls.DOD} mounted={this.state.mounted}/>
-            )}/>
-          <Route exact path="/doi" render={() => (
-            <DOI programs={this.state.programs.DOI} urls={this.state.urls.DOI} mounted={this.state.mounted}/>
-          )}/>
-          <Route exact path="/hhs" render={() => (
-            <HHS programs={this.state.programs.HHS} urls={this.state.urls.HHS} mounted={this.state.mounted}/>
-          )}/>
-          <Route exact path="/usda" render={() => (
-            <USDA programs={this.state.programs.USDA} urls={this.state.urls.USDA} mounted={this.state.mounted}/>
-          )}/>
-          <Route exact path="/hud" render={() => (
-            <HUD programs={this.state.programs.HUD} urls={this.state.urls.HUD} mounted={this.state.mounted}/>
-          )}/>
-          <Route exact path="/edu" render={() => (
-            <ED programs={this.state.programs.ED} urls={this.state.urls.ED} mounted={this.state.mounted}/>
-          )}/>
-          <Route exact path="/sba" render={() => (
-            <SBA programs={this.state.programs.SBA} urls={this.state.urls.SBA} mounted={this.state.mounted}/>
-          )}/>
-          <Route exact path="/epa" render={() => (
-            <EPA programs={this.state.programs.EPA} urls={this.state.urls.EPA} mounted={this.state.mounted}/>
-          )}/>
-          <Route exact path="/Commerce" render={() => (
-            <DOC programs={this.state.programs.DOC} urls={this.state.urls.DOC} mounted={this.state.mounted}/>
-          )}/>
-        </div>
-    </Router>
-    );
-  }
+  renderList(number){
+          var piece = null;
+          if(this.props.cardPosition === number){
+              piece = <Card />
+          }
+          return (
+              <Favorites number={number}>
+                  {piece}
+              </Favorites>
+          )
+      }
+
+      render(){
+          return(
+              <div style={{
+
+                  width: '900px',
+                  height: '900px',
+                  display: 'flex'
+              }}>
+                  {this.renderList('one')}
+                  {this.renderList('two')}
+                  {this.renderList('three')}
+              </div>
+          )
+      }
 
 }; //App Component
 
-export default App;
+export default DragDropContext(HTML5Backend)(App)

@@ -1,13 +1,16 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-  Route,
-  Link,
-  BrowserRouter as Router,
-} from 'react-router-dom'
+import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import {observe, cardPosition} from './Components/Game'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+const rootel =  document.getElementById('root')
+
+observe((cardPosition)=>{
+    ReactDOM.render(<App cardPosition={cardPosition}/>, rootel);
+})
+
 registerServiceWorker();

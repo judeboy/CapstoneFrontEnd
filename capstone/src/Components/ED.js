@@ -3,6 +3,18 @@ import '../Header.css';
 import PropTypes from 'prop-types';
 import { DragSource } from 'react-dnd';
 
+const cardSource = {
+  beginDrag: function(props, monitor){
+    return {cardId: 1}
+  }
+}
+
+function collect(connect, monitor){
+  return {
+    connectedDragSource: connect.DragSource(),
+    isDragging: monitor.isDragging()
+  }
+}
 
 
 class ED extends Component {
@@ -22,14 +34,17 @@ class ED extends Component {
       }
     }
 
-    return (
-      <div className="AgencyByShort">
+    const {connectedDragSource, isDragging} = this.props;
+
+
+    return connectedDragSource(
+      <div className="divOfProgs">
         {array.map((ele,i) => {
           return(
             <a target="_blank" href={`${ele[1]}`}>
-            <div className="ResultDiv">
-              <div className="ProgResult" key={i}>{ele[0]}</div>
-              <div className="LinkResult" key={i}></div>
+            <div className="singleProgram">
+              <div className="ProgTitleText" key={i}>{ele[0]}</div>
+              <div className="ProgTitleLink" key={i+1}></div>
             </div>
             </a>
           )
@@ -39,4 +54,4 @@ class ED extends Component {
 
   }
 }
-export default ED;
+export default DragSource('card', cardSource, collect )(ED);

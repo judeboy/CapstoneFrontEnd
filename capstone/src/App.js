@@ -83,7 +83,7 @@ class App extends Component {
     // console.log('matchingPrograms', matchingPrograms);
     return (
       <TrelloColumn number={number}>
-          {piece}
+          {matchingPrograms ? matchingPrograms.map(program => <Card {...program} />) : null}
       </TrelloColumn>
     )
     }

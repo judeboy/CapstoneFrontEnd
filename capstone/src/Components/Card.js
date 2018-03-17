@@ -4,8 +4,7 @@ import '../Card.css'
 
 const cardSource = {
     beginDrag: function (props, monitor){
-      console.log('card props', props);
-        return {cardId: props.cardId}
+        return {cardId: 1}
     }
 }
 

@@ -5,25 +5,29 @@ import '../Header.css';
 
 class HUD extends Component {
   render() {
-    let HUD = this.props.programs
-    let result = [];
-    HUD.forEach(programs => {
-      if(programs.AgencyShort === "HUD"){
-        return result.push(programs)
+    var HUD = []
+    var URL = []
+    var array = []
+    if(this.props.mounted === true){
+      console.log('we are good');
+      HUD = this.props.programs
+      URL = this.props.urls
+      for(let i = 0; i < HUD.length; i++){
+        let arr=[]
+        arr.push(HUD[i],URL[i])
+        array.push(arr)
       }
-    })
-    console.log("result", result);
+    }
 
     return (
       <div className="AgencyByShort"> HUD Programs
-        {result.map(ele=>{
+        {array.map((ele,i) => {
           return(
             <div>
-              <div>{ele.ProgTitle}</div>
-              <div>{ele.GovAgency}</div>
-              <div>{ele.WebURL}</div>
-            <br/>
-            </div>)
+              <div key={i}>{ele[0]}</div>
+              <div key={i}><a href={`${ele[1]}`}>CLICK</a></div>
+            </div>
+          )
         })}
        </div>
     );

@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
 import '../Header.css';
-import PropTypes from 'prop-types';
-import { DragSource } from 'react-dnd';
+import '../App.css'
 
 
 
-class ED extends Component {
-
+class SBA extends Component {
   render() {
-    var EDU = []
+    var SBA = []
     var URL = []
     var array = []
-    if(this.props.mounted === true){
+    if (this.props.mounted === true) {
       console.log('we are good');
-      EDU = this.props.programs
+      SBA = this.props.programs
       URL = this.props.urls
-      for(let i = 0; i < EDU.length; i++){
+      for(let i = 0; i < SBA.length; i++){
         let arr=[]
-        arr.push(EDU[i],URL[i])
+        arr.push(SBA[i],URL[i])
         array.push(arr)
       }
     }
@@ -39,4 +37,4 @@ class ED extends Component {
 
   }
 }
-export default ED;
+export default SBA;

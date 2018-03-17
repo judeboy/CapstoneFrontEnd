@@ -5,25 +5,29 @@ import '../Header.css';
 
 class EPA extends Component {
   render() {
-    let EPA = this.props.programs
-    let result = [];
-    EPA.forEach(programs => {
-      if(programs.AgencyShort === "EPA"){
-        return result.push(programs)
+    var EPA = []
+    var URL = []
+    var array = []
+    if(this.props.mounted === true){
+      console.log('we are good');
+      EPA = this.props.programs
+      URL = this.props.urls
+      for(let i = 0; i < EPA.length; i++){
+        let arr=[]
+        arr.push(EPA[i],URL[i])
+        array.push(arr)
       }
-    })
-    console.log("result", result);
+    }
 
     return (
       <div className="AgencyByShort"> EPA Programs
-        {result.map(ele=>{
+        {array.map((ele,i) => {
           return(
             <div>
-              <div>{ele.ProgTitle}</div>
-              <div>{ele.GovAgency}</div>
-              <div>{ele.WebURL}</div>
-            <br/>
-            </div>)
+              <div key={i}>{ele[0]}</div>
+              <div key={i}><a href={`${ele[1]}`}>CLICK</a></div>
+            </div>
+          )
         })}
        </div>
     );

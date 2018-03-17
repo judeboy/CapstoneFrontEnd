@@ -3,29 +3,33 @@ import '../Header.css';
 
 class HHS extends Component {
   render() {
-    let HHS = this.props.programs
-    let result = [];
-    HHS.forEach(programs => {
-      if(programs.AgencyShort === "HHS"){
-        return result.push(programs)
+    var HHS = []
+    var URL = []
+    var array = []
+    if(this.props.mounted === true){
+      console.log('we are good');
+      HHS = this.props.programs
+      URL = this.props.urls
+      for(let i = 0; i < HHS.length; i++){
+        let arr=[]
+        arr.push(HHS[i],URL[i])
+        array.push(arr)
       }
-    })
-    console.log("result", result);
+    }
 
     return (
       <div className="AgencyByShort"> HHS Programs
-        {result.map(ele=>{
+        {array.map((ele,i) => {
           return(
             <div>
-              <div>{ele.ProgTitle}</div>
-              <div>{ele.GovAgency}</div>
-              <div>{ele.WebURL}</div>
-            <br/>
-            </div>)
+              <div key={i}>{ele[0]}</div>
+              <div key={i}><a href={`${ele[1]}`}>CLICK</a></div>
+            </div>
+          )
         })}
        </div>
     );
+
   }
 }
-
 export default HHS;

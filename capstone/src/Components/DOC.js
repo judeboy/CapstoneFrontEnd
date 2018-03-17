@@ -5,25 +5,34 @@ import '../Header.css';
 
 class DOC extends Component {
   render() {
-    let DOC = this.props.programs
-    let result = [];
-    DOC.forEach(programs => {
-      if(programs.AgencyShort === "DOC"){
-        return result.push(programs)
-      }
-    })
-    console.log("result", result);
+    var DOC = [];
+    var URL = [];
+    var array = [];
 
+    if(this.props.mounted === true){
+      console.log('we are good');
+      DOC = this.props.programs
+      URL = this.props.urls
+      // console.log(URL)
+      console.log(Array.isArray(DOC));
+      console.log(DOC[0],URL[0]);
+      for(let i = 0; i < DOC.length; i++){
+        let arr = []
+        arr.push(DOC[i], URL[i])
+        array.push(arr)
+      }
+      // console.log(array[0][1].toString());
+      // console.log(array[0][1]);
+    }
     return (
-      <div className="AgencyByShort"> DOC Programs
-        {result.map(ele=>{
+      <div className="AgencyByShort">
+        {array.map((ele,i) => {
           return(
             <div>
-              <div>{ele.ProgTitle}</div>
-              <div>{ele.GovAgency}</div>
-              <div>{ele.WebURL}</div>
-            <br/>
-            </div>)
+              <div key={i}>{ele[0]}</div>
+              <div key={i}><a href={`${ele[1]}`}>CLICK</a></div>
+            </div>
+          )
         })}
        </div>
     );

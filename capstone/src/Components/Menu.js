@@ -4,8 +4,6 @@ import {
   Link
 } from 'react-router-dom'
 import '../App.css';
-import flamingo from '../images/flamingo.jpg';
-import boat from '../images/boat.jpg';
 import justice from '../images/justice.png'
 import epa from '../images/factory.png'
 import hhs from '../images/hhs.png'
@@ -17,28 +15,41 @@ import doa from '../images/doa.png'
 import city from '../images/city.png'
 import car from '../images/car.png'
 import Card from './Card.js'
-
+// import Header from './Header.js'
 
 
 class Menu extends Component {
 
   render() {
     return (
-      <div className="Landing">
+      <div className="Menu">
+        {/* <Header /> */}
         <h1>Choose from one of the panes below</h1>
         <div className="MenuDivs">
-          <Card title={'Env Protection Agency'} image={epa}/>
-          <Card title={'Health & Human Services'} image={hhs}/>
-          <Card title={'Dept of Interior'} image={doi}/>
-          <Card title={'Dept of Commerce'} image={coin}/>
-          <Card title={'Dept of Education'} image={book}/>
-          <Card title={'Dept of Justice'} image={justice}/>
-          <Link to='/dod'>
-            <Card key="DODcard" title={'Dept of Defense'} image={dod}/>
+          <Link to='/epa'>
+            <Card title={'Env Protection Agency'} image={epa}/>
           </Link>
-          <Card title={'US Dept of Agriculture'} image={doa}/>
-          <Card title={'Housing & Urban Development'} image={city}/>
-          <Card title={'Dept of Transportation'} image={car}/>
+          <Link to='hhs'>
+            <Card title={'Health & Human Services'} image={hhs}/>
+          </Link>
+          <Link to='/doi'>
+            <Card title={'Dept of Interior'} image={doi}/>
+          </Link>
+          <Link to='/Commerce'>
+            <Card title={'Dept of Commerce'} image={coin}/>
+          </Link>
+          <Link to="/edu">
+            <Card title={'Dept of Education'} image={book}/>
+          </Link>
+          <Link to='/usda'>
+            <Card title={'US Dept of Agriculture'} image={doa}/>
+          </Link>
+          <Link to='/hud'>
+            <Card title={'Housing & Urban Development'} image={city}/>
+          </Link>
+          <Link to='/sba'>
+          <Card title={'Small Business Administration'} image={car}/>
+          </Link>
         </div>
       </div>
     );

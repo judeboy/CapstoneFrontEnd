@@ -5,29 +5,36 @@ import '../Header.css';
 
 class DOI extends Component {
   render() {
-    let DOI = this.props.programs
-    let result = [];
-    DOI.forEach(programs => {
-      if(programs.AgencyShort === "DOI"){
-        return result.push(programs)
+    var DOI = []
+    var URL = []
+    var array = []
+    if(this.props.mounted === true){
+      console.log('we are good');
+      DOI = this.props.programs
+      URL = this.props.urls
+      for(let i = 0; i < DOI.length; i++){
+        let arr=[]
+        arr.push(DOI[i],URL[i])
+        array.push(arr)
       }
-    })
-    console.log("result", result);
+    }
 
     return (
-      <div className="AgencyByShort"> DOI Programs
-        {result.map(ele=>{
+      <div className="AgencyByShort">
+        {array.map((ele,i) => {
           return(
-            <div>
-              <div>{ele.ProgTitle}</div>
-              <div>{ele.GovAgency}</div>
-              <div>{ele.WebURL}</div>
-            <br/>
-            </div>)
+            <a target="_blank" href={`${ele[1]}`}>
+            <div className="ResultDiv">
+              <div className="ProgResult" key={i}>{ele[0]}</div>
+              <div className="LinkResult" key={i}></div>
+            </div>
+            </a>
+          )
         })}
        </div>
     );
 
   }
 }
+
 export default DOI;

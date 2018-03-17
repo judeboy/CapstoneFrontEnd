@@ -8,7 +8,7 @@ class DOD extends Component {
     var DOD= []
     var URL
     var array=[]
-    if(this.props.mounted == true){
+    if(this.props.mounted === true){
       console.log('we are good');
       DOD = this.props.programs
       URL = this.props.urls
@@ -28,7 +28,7 @@ class DOD extends Component {
           return(
             <div>
               <div key={i}>{ele[0]}</div>
-              <div key={i}><a href={`${ele[1]}`}>Link</a></div>
+              <div key={i}><a href={`${ele[1]}`}>CLICK FOR MORE INFO</a></div>
             </div>
           )
         })}

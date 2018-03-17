@@ -5,9 +5,6 @@ import {
   BrowserRouter as Router,
 } from 'react-router-dom'
 import PropTypes from 'prop-types';
-import { DragSource } from 'react-dnd';
-import HTML5
-
 import './App.css';
 import Header from './Components/Header';
 import Menu from './Components/Menu';

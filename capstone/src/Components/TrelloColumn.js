@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import '../App.css'
 import {DropTarget} from 'react-dnd'
 import {moveCard} from './Game'
 
@@ -14,20 +15,15 @@ function collect(connect, monitor){
     }
 }
 
-class Favorites extends Component{
+class TrelloColumn extends Component{
     render(){
         const {connectDropTarget} = this.props
         return connectDropTarget(
-            <div style={{
-                border: "2px solid black",
-                backgroundColor: 'gray',
-                width: '300px',
-                height: '600px'
-            }}>
+            <div className="trelloColumns">
                 {this.props.children}
             </div>
         )
     }
 }
 
-export default DropTarget('card', listTarget, collect)(Favorites)
+export default DropTarget('card', listTarget, collect)(TrelloColumn)

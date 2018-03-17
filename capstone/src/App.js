@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import {
-  Route,
-  Link,
-  BrowserRouter as Router,
-} from 'react-router-dom'
-import PropTypes from 'prop-types';
+// import {
+//   Route,
+//   Link,
+//   BrowserRouter as Router,
+// } from 'react-router-dom'
+// import PropTypes from 'prop-types';
 
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
 import './App.css';
-import Header from './Components/Header';
-import Menu from './Components/Menu';
-import Favorites from './Components/Favorites';
+// import Header from './Components/Header';
+// import Menu from './Components/Menu';
+import TrelloColumn from './Components/TrelloColumn';
 import Card from './Components/Card'
 
 
@@ -21,19 +21,23 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      ids: [],
       greeting: 'Hello',
-      programs: {},
-      urls: {},
-      mounted:false
+      mounted:false,
+      // programs: {},
+      // urls: {},
+      type: 'USDA',
+      matchingPrograms: [],
     }
   }
 
   async componentDidMount() {
     const response = await fetch('https://judahhh.herokuapp.com/')
     const json = await response.json()
-    this.organizeProgs(json);
-    this.organizeURLs(json)
+    const matchingPrograms = json.filter(program => program.AgencyShort === this.state.type);
+    console.log('matchingPrograms innit : ', matchingPrograms);
+    this.setState({ matchingPrograms });
+    // this.organizeProgs(json);
+    // this.organizeURLs(json)
     this.setState({
       mounted:true
     })
@@ -48,19 +52,6 @@ class App extends Component {
       } else {
         obj[urls[i].AgencyShort].push(urls[i].WebURL)
         this.setState({urls: obj})
-      }
-    }
-  }
-
-  organizeIds(json){
-    let obj = {}
-    let ids = json
-    for (let i in ids){
-      if (!obj[ids[i].AgencyShort]){
-        obj[ids[i].AgencyShort] = [ids[i].id]
-      } else {
-        obj[ids[i].AgencyShort].push(ids[i].id)
-        this.setState({ids: obj})
       }
     }
   }
@@ -83,29 +74,27 @@ class App extends Component {
     // console.log("function Object", this.state.programs.DOD)
   }
 
-  renderList(number){
+  renderList = (number, matchingPrograms) => {
           var piece = null;
           if(this.props.cardPosition === number){
               piece = <Card />
           }
+
+          console.log('matchingPrograms', matchingPrograms);
           return (
-              <Favorites number={number}>
-                  {piece}
-              </Favorites>
+              <TrelloColumn number={number}>
+                  {matchingPrograms ? matchingPrograms.map(program => <Card {...program} />) : null}
+              </TrelloColumn>
           )
       }
 
       render(){
           return(
-              <div style={{
-
-                  width: '900px',
-                  height: '900px',
-                  display: 'flex'
-              }}>
-                  {this.renderList('one')}
+              <div id='containerOfColumns'>
+                  {this.renderList('one', this.state.matchingPrograms)}
                   {this.renderList('two')}
                   {this.renderList('three')}
+                  {this.renderList('four')}
               </div>
           )
       }

@@ -5,9 +5,11 @@
 .singleProgram{
   border: thin solid black;
   background-color: #221f1f;
-  width: 250px;
+  width: 200px;
   height: 100px;
   margin: 10px;
+	overflow: hidden;
+	color: white;
 }
 
 #rcorners3 {

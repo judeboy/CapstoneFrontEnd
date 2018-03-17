@@ -1,5 +1,5 @@
 
-let cardPosition = 'two';
+let cardPosition = null;
 let observer = null;
 
 export function observe(o){

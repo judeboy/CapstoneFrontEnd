@@ -18,15 +18,10 @@ function collection(connect, monitor){
 class Card extends Component{
     render(){
         const {connectDragSource, isDragging} = this.props
+
         return connectDragSource(
-            <div style={{
-                background: 'purple',
-                height: '200px',
-                width: '200px',
-                fontSize:'200px',
-                border:'5px solid black'
-            }}>
-                &#x2665;
+            <div key={this.props.ProgNumber} url={this.props.WebURL} className='singleProgram'>
+              {this.props.ProgTitle}
             </div>
         )
     }

@@ -11,7 +11,6 @@ class Card extends Component {
         <div>
            <div className="card">
             <h3>{this.props.title}</h3>
-            <img id='rcorners3' src={this.props.image}></img>
           </div>
         </div>
       )

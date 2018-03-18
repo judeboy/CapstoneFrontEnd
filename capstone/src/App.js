@@ -53,7 +53,6 @@ class App extends Component {
       }
     }
   }
-
   organizeProgs(json){
     // console.log('organizeProgs');
     let obj = {}
@@ -77,7 +76,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Header greeting={this.state.greeting} name="Judah"/>
-          <Favorites mounted={this.state.mounted}/>
+          {/* <Favorites mounted={this.state.mounted}/> */}
           <Route exact path="/" render={() => (
             <Menu  />
             )}/>

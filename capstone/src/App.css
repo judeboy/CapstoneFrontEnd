@@ -13,6 +13,11 @@
 
 }
 
+#searchbar{
+  height: 50px;
+  width:100px;
+}
+
 .MenuDivs a {
   padding-left: 5%;
   position: relative;

@@ -27,19 +27,24 @@ class App extends Component {
       // urls: {},
       type: 'DOD',
       matchingPrograms: [],
+      allIds: [],
+      selected: '',
     }
+  }
+
+  setSelected = (progNum) => {
+    this.setState({selected: progNum})
+    console.log(this.state.selected);
   }
 
   async componentDidMount() {
     const response = await fetch('https://judahhh.herokuapp.com/')
     const json = await response.json()
-
+    let idsArr = []
     const matchingPrograms = json.filter(program => program.AgencyShort === this.state.type);
-
-    // console.log('matchingPrograms innit : ', matchingPrograms);
-    this.setState({ matchingPrograms });
-    // this.organizeProgs(json);
-    // this.organizeURLs(json)
+    const idsList = json.filter(program => idsArr.push(program.ProgNumber));
+    this.setState({matchingPrograms});
+    this.setState({allIds: idsArr})
     this.setState({
       mounted:true
     })
@@ -77,13 +82,12 @@ class App extends Component {
 
   renderList = (number, matchingPrograms) => {
     var piece = null;
-    if(this.props.cardPosition === number){
-        piece = <Card />
+    if(this.props.cardPosition === number && this.state.matchingPrograms.length > 0){
+      piece = this.state.matchingPrograms.map((program,i) => <Card {...program} setSelected={this.setSelected} />)
     }
-    // console.log('matchingPrograms', matchingPrograms);
     return (
       <TrelloColumn number={number}>
-          {matchingPrograms ? matchingPrograms.map(program => <Card {...program} />) : null}
+       {piece}
       </TrelloColumn>
     )
     }
@@ -91,7 +95,7 @@ class App extends Component {
   render(){
     return(
       <div id='containerOfColumns'>
-          {this.renderList('one', this.state.matchingPrograms)}
+          {this.renderList('one')}
           {this.renderList('two')}
           {this.renderList('three')}
           {this.renderList('four')}

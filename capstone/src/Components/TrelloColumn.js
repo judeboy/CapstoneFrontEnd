@@ -5,8 +5,9 @@ import {moveCard} from './Game'
 
 const listTarget = {
     drop: function (props, monitor){
-      console.log('listTarget props', props);
+      console.log(props)
         moveCard(props.number)
+
     }
 }
 
@@ -19,6 +20,7 @@ function collect(connect, monitor){
 class TrelloColumn extends Component{
     render(){
         const {connectDropTarget} = this.props
+        console.log(this.props);
         return connectDropTarget(
             <div className="trelloColumns">
                 {this.props.children}

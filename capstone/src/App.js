@@ -69,46 +69,29 @@ class App extends Component {
     // console.log("function Object", this.state.programs.DOD)
   }
 
-  render() {
+  renderList = (number, matchingPrograms) => {
+    var piece = null;
+    if(this.props.cardPosition === number){
+        piece = <Card />
+    }
+    // console.log('matchingPrograms', matchingPrograms);
     return (
-      <Router>
-        <div className="App">
-          <Header greeting={this.state.greeting} name="Judah"/>
-          {/* <Favorites mounted={this.state.mounted}/> */}
-          <Route exact path="/" render={() => (
-            <Menu  />
-            )}/>
-          <Route exact path="/dod" render={() => (
-            <DOD programs={this.state.programs.DOD} urls={this.state.urls.DOD} mounted={this.state.mounted}/>
-            )}/>
-          <Route exact path="/doi" render={() => (
-            <DOI programs={this.state.programs.DOI} urls={this.state.urls.DOI} mounted={this.state.mounted}/>
-          )}/>
-          <Route exact path="/hhs" render={() => (
-            <HHS programs={this.state.programs.HHS} urls={this.state.urls.HHS} mounted={this.state.mounted}/>
-          )}/>
-          <Route exact path="/usda" render={() => (
-            <USDA programs={this.state.programs.USDA} urls={this.state.urls.USDA} mounted={this.state.mounted}/>
-          )}/>
-          <Route exact path="/hud" render={() => (
-            <HUD programs={this.state.programs.HUD} urls={this.state.urls.HUD} mounted={this.state.mounted}/>
-          )}/>
-          <Route exact path="/edu" render={() => (
-            <ED programs={this.state.programs.ED} urls={this.state.urls.ED} mounted={this.state.mounted}/>
-          )}/>
-          <Route exact path="/sba" render={() => (
-            <SBA programs={this.state.programs.SBA} urls={this.state.urls.SBA} mounted={this.state.mounted}/>
-          )}/>
-          <Route exact path="/epa" render={() => (
-            <EPA programs={this.state.programs.EPA} urls={this.state.urls.EPA} mounted={this.state.mounted}/>
-          )}/>
-          <Route exact path="/Commerce" render={() => (
-            <DOC programs={this.state.programs.DOC} urls={this.state.urls.DOC} mounted={this.state.mounted}/>
-          )}/>
-        </div>
-    </Router>
-    );
+      <TrelloColumn number={number}>
+      </TrelloColumn>
+    )
+    }
+
+  render(){
+    return(
+      <div id='containerOfColumns'>
+          {this.renderList('one')}
+          {this.renderList('two')}
+          {this.renderList('three')}
+          {this.renderList('four')}
+      </div>
+    )
   }
+
 
 }; //App Component
 

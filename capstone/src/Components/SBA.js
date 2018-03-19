@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import Draggable, {DraggableCore} from 'react-draggable';
 import '../Header.css';
 import '../App.css'
 
@@ -30,21 +32,17 @@ class SBA extends Component {
     }
 
     return (
-        <div>
-        <input id='searchbar' type='text' value={this.state.search} onChange={this.updateSearch.bind(this)}/>
-        <div className="AgencyByShort">
+        <div className='trelloColumn'>
         {array.map((ele,i) => {
           return(
-            <a target="_blank" href={`${ele[1]}`}>
-            <div className="ResultDiv">
-              <div className="ProgResult" key={i}>{ele[0]}</div>
-              <div className="LinkResult"></div>
-            </div>
-            </a>
+              <Draggable>
+                <div className="ResultDiv">
+                  <a target="_blank" href={`${ele[1]}`}><div className="ProgResult" key={i}>{ele[0]}</div></a>
+                </div>
+              </Draggable>
           )
         })}
        </div>
-     </div>
     );
 
   }

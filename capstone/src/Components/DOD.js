@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../Header.css';
+import ReactDOM from 'react-dom';
+import Draggable, {DraggableCore} from 'react-draggable';
 
 
 
@@ -26,10 +28,12 @@ class DOD extends Component {
       <div className="AgencyByShort">
         {array.map((ele,i) => {
           return(
-            <div>
-              <div key={i}>{ele[0]}</div>
-              <div key={i}><a href={`${ele[1]}`}>CLICK FOR MORE INFO</a></div>
-            </div>
+            <Draggable>
+              <div>
+                <div key={i}>{ele[0]}</div>
+                <div key={i}><a href={`${ele[1]}`}>CLICK FOR MORE INFO</a></div>
+              </div>
+            </Draggable>
           )
         })}
        </div>

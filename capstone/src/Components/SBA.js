@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Draggable, {DraggableCore} from 'react-draggable';
+import Card from './Card'
+import TrelloColumn from './TrelloColumn'
 import '../Header.css';
 import '../App.css'
 
 
 
+    // console.log('matchingPrograms', matchingPrograms);
+
+
+
 class SBA extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      search:''
-    }
+
+  renderList = (number) => {
+    return (
+      <TrelloColumn number={number}>
+      </TrelloColumn>
+    )
   }
-  updateSearch(event){
-    this.setState({search: event.target.value})
-    console.log(this.state.search);
-  }
+
   render() {
     var SBA = []
     var URL = []
@@ -32,19 +36,26 @@ class SBA extends Component {
     }
 
     return (
-        <div className='trelloColumn'>
-        {array.map((ele,i) => {
-          return(
-              <Draggable>
-                <div className="ResultDiv">
-                  <a target="_blank" href={`${ele[1]}`}><div className="ProgResult" key={i}>{ele[0]}</div></a>
-                </div>
-              </Draggable>
-          )
-        })}
-       </div>
+      <div id='containerOfColumns'>
+          {this.renderList('one')}
+          {this.renderList('two')}
+          {this.renderList('three')}
+          {this.renderList('four')}
+      </div>
+
     );
 
   }
 }
 export default SBA;
+{/* <div className='trelloColumn'>
+{array.map((ele,i) => {
+  return(
+      <Draggable>
+        <div className="ResultDiv">
+          <a target="_blank" href={`${ele[1]}`}><div className="ProgResult" key={i}>{ele[0]}</div></a>
+        </div>
+      </Draggable>
+  )
+})}
+</div> */}

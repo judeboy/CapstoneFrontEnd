@@ -1,21 +1,14 @@
-import React, { Component } from 'react';
-import '../App.css';
-import '../Card.css';
+import React, {Component} from 'react'
+import '../App.css'
 
-
-
-
-class Card extends Component {
+class TrelloColumn extends Component{
     render(){
-      return (
-        <div>
-           <div className="card">
-            <h3>{this.props.title}</h3>
-          </div>
-        </div>
-      )
+        return (
+            <div className="trelloColumns">
+                Hello
+            </div>
+        )
     }
-  }
+}
 
-
-export default Card;
+export default TrelloColumn;

@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "c3-react": "^0.1.13",
     "npm": "^5.7.1",
+    "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-c3js": "^0.1.20",
     "react-dom": "^16.2.0",

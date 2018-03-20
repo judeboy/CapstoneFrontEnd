@@ -18,7 +18,7 @@
   /* border: 2px solid black; */
   background: #87B6D8;
   width: 400px;
-  height: 640px;
+  height: 675px;
   margin: 5px;
   border-radius: 25px;
   justify-content: center;
@@ -63,13 +63,12 @@
   border-radius: 25px;
 }
 
-/* .AgencyByShort{
-  justify-content: center;
-  display: flex;
-  flex-flow: row;
-  flex-wrap:wrap;
-} */
-
+#landing{
+padding-top: 150px;
+padding-bottom: 150px;
+margin-bottom: 245px;
+/* border-style: groove; */
+}
 
 a:link, a:visited {
     color: white;

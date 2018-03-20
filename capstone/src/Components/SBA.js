@@ -22,7 +22,7 @@ class SBA extends Component {
 
     return (
       <div>
-        <h1>Small Buisness Administration</h1>
+        <h1>Small Business Administration</h1>
       <div id='containerOfColumns'>
         <div className='trelloColumns'>
           <span className='columnTitles'>Available Programs</span>

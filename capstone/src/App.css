@@ -14,11 +14,17 @@
 }
 
 .trelloColumns{
-  background-color: lightgreen;
+  border: 2px solid black;
+  background: lightblue;
   width: 400px;
   height: auto;
-  padding-top: 20px;
+  margin: 5px;
+}
 
+#containerOfColumns{
+   width: auto;
+   height: auto;
+   display: flex
 }
 
 .MenuDivs a {
@@ -32,27 +38,27 @@
 
 .ProgResult{
   text-transform: uppercase;
-  padding-top: 10px;
+  padding-top: 30px;
 }
 
 .LinkResult{
   padding-top: 50px;
 }
 
-.ResultDiv{
+.singleProgramDiv{
   border: thin solid black;
   background-color: #221f1f;
-  width: 300px;
+  width: 280px;
   height: 100px;
-  margin: 10px;
+  margin: 3px;
 }
 
-.AgencyByShort{
+/* .AgencyByShort{
   justify-content: center;
   display: flex;
   flex-flow: row;
   flex-wrap:wrap;
-}
+} */
 
 
 a:link, a:visited {
@@ -64,5 +70,4 @@ a:link, a:visited {
 
 a:hover, a:active {
   transform: scale(1.04) translateY(-5px);
-  /* background-color: #dbdcd1; */
 }

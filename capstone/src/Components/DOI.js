@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Draggable, {DraggableCore} from 'react-draggable';
 import '../Header.css';
 
 
@@ -20,18 +21,24 @@ class DOI extends Component {
     }
 
     return (
-      <div className="AgencyByShort">
+      <div id='containerOfColumns'>
+        <div >
+          Available Programs
         {array.map((ele,i) => {
           return(
-            <a target="_blank" href={`${ele[1]}`}>
-            <div className="ResultDiv">
-              <div className="ProgResult" key={i}>{ele[0]}</div>
-              <div className="LinkResult" key={i}></div>
-            </div>
-            </a>
+            <Draggable>
+                <div className="singleProgramDiv">
+                  <a target="_blank" href={`${ele[1]}`}><div className="ProgResult" key={i}>{ele[0]}</div></a>
+                </div>
+            </Draggable>
           )
         })}
        </div>
+      <div className="trelloColumns"> Intersting</div>
+      <div className="trelloColumns"> Applied</div>
+      <div className="trelloColumns"> Follow Up</div>
+      <div className="trelloColumns"> Completed</div>
+     </div>
     );
 
   }

@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom'
 import './App.css';
 import Header from './Components/Header';
+import Landing from './Components/Landing';
 import Menu from './Components/Menu';
 import DOD from './Components/DOD';
 import HHS from './Components/HHS';
@@ -74,6 +75,9 @@ class App extends Component {
       <Router>
         <div className="App">
           <Header greeting={this.state.greeting} name="Judah"/>
+          <Route exact path='/landing' render={() => (
+            <Landing />
+          )}/>
           <Route exact path="/menu" render={() => (
             <Menu  />
             )}/>

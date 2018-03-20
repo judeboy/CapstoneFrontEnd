@@ -1302,6 +1302,20 @@ bytes@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-3.0.0.tgz#d32815404d689699f85a4ea4fa8755dd13a96048"
 
+c3-react@^0.1.13:
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/c3-react/-/c3-react-0.1.13.tgz#be8fb14f054c3f219baaa5a873c2834f7d25811f"
+  dependencies:
+    c3 "^0.4.10"
+    d3 "^3.5.5"
+    lodash "^3.9.3"
+
+c3@^0.4.10, c3@^0.4.11:
+  version "0.4.21"
+  resolved "https://registry.yarnpkg.com/c3/-/c3-0.4.21.tgz#61a2dc5a31c6a64e011d15b136c160c44fbb9631"
+  dependencies:
+    d3 "~3.5.0"
+
 cacache@^10.0.0, cacache@^10.0.4:
   version "10.0.4"
   resolved "https://registry.yarnpkg.com/cacache/-/cacache-10.0.4.tgz#6452367999eff9d4188aefd9a14e9d7c6a263460"
@@ -1982,6 +1996,10 @@ currently-unhandled@^0.4.1:
 cyclist@~0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
+
+d3@^3.5.5, d3@~3.5.0:
+  version "3.5.17"
+  resolved "https://registry.yarnpkg.com/d3/-/d3-3.5.17.tgz#bc46748004378b21a360c9fc7cf5231790762fb8"
 
 d@1:
   version "1.0.0"
@@ -4724,7 +4742,7 @@ lodash.without@~4.4.0:
   version "4.17.5"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
 
-lodash@^3.10.1:
+lodash@^3.10.1, lodash@^3.9.3:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
@@ -6393,6 +6411,12 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.1.7:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+react-c3js@^0.1.20:
+  version "0.1.20"
+  resolved "https://registry.yarnpkg.com/react-c3js/-/react-c3js-0.1.20.tgz#561bb211bd691be42af39726d11bab42d09f3e7b"
+  dependencies:
+    c3 "^0.4.11"
 
 react-dev-utils@^5.0.0:
   version "5.0.0"

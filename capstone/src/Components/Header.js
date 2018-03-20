@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {
+  Route,
+  Link
+} from 'react-router-dom'
 import '../Header.css';
 
 class Header extends Component {
@@ -6,9 +10,11 @@ class Header extends Component {
   render() {
 
     return (
-      <div className="Header">
-      {this.props.greeting}
-      </div>
+      <Link to='/menu'>
+        <div className="Header">
+        Civil Searcher<span className="headerSmallLetters">...funding that fits your needs</span>
+        </div>
+      </Link>
     );
   }
 }

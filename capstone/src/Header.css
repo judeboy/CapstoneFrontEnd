@@ -1,8 +1,29 @@
+
+@import url('https://fonts.googleapis.com/css?family=Bowlby+One+SC|Holtwood+One+SC');
+
 .Header {
-  border: 2px solid black;
+  font-family: 'Holtwood One SC', serif;
+  font-size: 60px;
+  border-radius: 25px;
   text-align: center;
-  background: #f5f5f5;
-  color: #333;
+  background: #F8CB43;
+  color: #0a5c49;
   margin: 20px;
   padding: 20px;
+}
+
+h1{
+  font-family: 'Bowlby One SC', cursive;
+}
+
+.headerSmallLetters{
+  font-family: 'Holtwood One SC', serif;
+  font-size: 30px;
+  color: #0a5c49;
+}
+
+.columnTitles{
+  font-family: 'Holtwood One SC', serif;
+  font-size: 20px;
+  color: #0a5c49;
 }

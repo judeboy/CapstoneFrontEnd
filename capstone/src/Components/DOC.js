@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import Draggable, {DraggableCore} from 'react-draggable';
 import '../Header.css';
 
 
@@ -25,16 +27,27 @@ class DOC extends Component {
       // console.log(array[0][1]);
     }
     return (
-      <div className="AgencyByShort">
+      <div>
+      <h1>Department of Commerce</h1>
+      <div id='containerOfColumns'>
+        <div className='trelloColumnScrollable'>
+          <span className='columnTitles'>Available Programs</span>
         {array.map((ele,i) => {
           return(
-            <div>
-              <div key={i}>{ele[0]}</div>
-              <div key={i}><a href={`${ele[1]}`}>CLICK</a></div>
-            </div>
+            <Draggable>
+                <div className="singleProgramDiv">
+                  <a target="_blank" href={`${ele[1]}`}><div className="ProgResult" key={i}>{ele[0]}</div></a>
+                </div>
+            </Draggable>
           )
         })}
        </div>
+       <div className="trelloColumns"> <span className='columnTitles'>Interesting</span></div>
+       <div className="trelloColumns"> <span className='columnTitles'>Applied</span></div>
+       <div className="trelloColumns"> <span className='columnTitles'>Follow-Up</span></div>
+       <div className="trelloColumns"> <span className='columnTitles'>Completed!</span></div>
+       </div>
+     </div>
     );
 
   }

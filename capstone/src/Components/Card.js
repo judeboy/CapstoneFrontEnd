@@ -9,9 +9,9 @@ class Card extends Component {
     render(){
       return (
         <div>
-           <div  className="card" >
-             <img image={image}></img>
-            <h3> {this.props.title}</h3>
+           <div className="card">
+            <h3>{this.props.title}</h3>
+            <img id='rcorners3' src={this.props.image}></img>
           </div>
         </div>
       )

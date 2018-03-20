@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../Header.css';
-import PropTypes from 'prop-types';
-import { DragSource } from 'react-dnd';
+import ReactDOM from 'react-dom';
+import Draggable, {DraggableCore} from 'react-draggable';
 
 
 
@@ -23,18 +23,27 @@ class ED extends Component {
     }
 
     return (
-      <div className="AgencyByShort">
+      <div>
+      <h1>Department of Education</h1>
+      <div id='containerOfColumns'>
+        <div className='trelloColumnScrollable'>
+          <span className='columnTitles'>Available Programs</span>
         {array.map((ele,i) => {
           return(
-            <a target="_blank" href={`${ele[1]}`}>
-            <div className="ResultDiv">
-              <div className="ProgResult" key={i}>{ele[0]}</div>
-              <div className="LinkResult" key={i}></div>
-            </div>
-            </a>
+            <Draggable>
+                <div className="singleProgramDiv">
+                  <a target="_blank" href={`${ele[1]}`}><div className="ProgResult" key={i}>{ele[0]}</div></a>
+                </div>
+            </Draggable>
           )
         })}
        </div>
+       <div className="trelloColumns"> <span className='columnTitles'>Interesting</span></div>
+       <div className="trelloColumns"> <span className='columnTitles'>Applied</span></div>
+       <div className="trelloColumns"> <span className='columnTitles'>Follow-Up</span></div>
+       <div className="trelloColumns"> <span className='columnTitles'>Completed!</span></div>
+       </div>
+     </div>
     );
 
   }

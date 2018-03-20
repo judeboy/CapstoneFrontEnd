@@ -5,13 +5,13 @@ import {
 } from 'react-router-dom'
 import './App.css';
 import Header from './Components/Header';
-import Landing from './Components/Landing';
+import Chart from './Components/Chart';
 import Menu from './Components/Menu';
 import DOD from './Components/DOD';
 import HHS from './Components/HHS';
 import DOI from './Components/DOI';
 import USDA from './Components/USDA';
-import Favorites from './Components/Favorites';
+import Landing from './Components/Landing';
 import HUD from './Components/HUD';
 import ED from './Components/ED';
 import SBA from './Components/SBA';
@@ -75,9 +75,6 @@ class App extends Component {
       <Router>
         <div className="App">
           <Header greeting={this.state.greeting} name="Judah"/>
-          <Route exact path='/landing' render={() => (
-            <Landing />
-          )}/>
           <Route exact path="/menu" render={() => (
             <Menu  />
             )}/>
@@ -107,6 +104,9 @@ class App extends Component {
           )}/>
           <Route exact path="/Commerce" render={() => (
             <DOC programs={this.state.programs.DOC} urls={this.state.urls.DOC} mounted={this.state.mounted}/>
+          )}/>
+          <Route exact path='/' render={() => (
+            <Chart mounted={this.state.mounted} />
           )}/>
         </div>
     </Router>

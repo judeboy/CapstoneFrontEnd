@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Draggable, {DraggableCore} from 'react-draggable';
-import '../Header.css';
 import '../App.css'
-
+import '../Header.css';
 
 
 class SBA extends Component {
@@ -14,7 +13,7 @@ class SBA extends Component {
     if (this.props.mounted === true) {
       SBA = this.props.programs
       URL = this.props.urls
-      for(let i = 0; i < SBA.length; i++){
+      for(let i = 0; i < 6; i++){
         let arr=[]
         arr.push(SBA[i],URL[i])
         array.push(arr)
@@ -22,9 +21,11 @@ class SBA extends Component {
     }
 
     return (
+      <div>
+        <h1>Small Buisness Administration</h1>
       <div id='containerOfColumns'>
         <div className='trelloColumns'>
-          Available Programs
+          <span className='columnTitles'>Available Programs</span>
         {array.map((ele,i) => {
           return(
             <Draggable>
@@ -35,10 +36,11 @@ class SBA extends Component {
           )
         })}
        </div>
-      <div className="trelloColumns"> Interesting</div>
-      <div className="trelloColumns"> Applied</div>
-      <div className="trelloColumns"> Follow-Up</div>
-      <div className="trelloColumns"> Completed!</div>
+       <div className="trelloColumns"> <span className='columnTitles'>Interesting</span></div>
+       <div className="trelloColumns"> <span className='columnTitles'>Applied</span></div>
+       <div className="trelloColumns"> <span className='columnTitles'>Follow-Up</span></div>
+       <div className="trelloColumns"> <span className='columnTitles'>Completed!</span></div>
+       </div>
      </div>
     );
 

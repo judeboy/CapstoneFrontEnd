@@ -61,7 +61,6 @@ class App extends Component {
       }
       // console.log("function Object", this.state.programs.DOD)
     }
-
     organizeProgs(json);
     organizeURLs(json)
     this.setState({

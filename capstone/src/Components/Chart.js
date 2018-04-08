@@ -21,9 +21,8 @@ class Chart extends Component {
 
       return (
         <div>
-        {/* <img className='mainLogo' src={logo}></img> */}
-        <div id='landing' className='columnTitles' >
-         The US Government has thousands of programs that provide funding to both individuals and businesses for a myriad of reasons. The problem is that navigating the .GOV sites rarely provides ease of access. What <span id='bold'>Civil Searcher</span> aims to do is streamline the process by providing a central database to access and track the application process of these programs.
+        <div id='intro' >
+         The US Government has thousands of programs that provide funding to both individuals and businesses for a myriad of reasons. The problem is that navigating the .GOV sites rarely provides ease of access. What <span id='bold'>Civil Searcher</span> aims to do is streamline the process by providing a central database to access and track the application process for these programs.
         </div>
         </div>
         )

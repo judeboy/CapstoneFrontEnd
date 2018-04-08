@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Bowlby+One+SC|Holtwood+One+SC');
-.App {
 
+.App {
   border-radius: 25px;
   text-align: center;
   color: #333;
@@ -21,6 +21,7 @@
   margin: 5px;
   border-radius: 25px;
   justify-content: center;
+  border-style: groove;
 }
 
 .trelloColumnScrollable {
@@ -28,7 +29,8 @@
   overflow: scroll;
   background: #87B6D8;
   width: 400px;
-  height: 640px;
+  height: 675px;
+  border-style: groove;
 }
 #containerOfColumns{
    width: auto;
@@ -50,6 +52,7 @@
   padding-top: 30px;
   font-family: 'Jomhuria';
   font-size: 30px;
+
 }
 
 .LinkResult{
@@ -62,6 +65,7 @@
   height: 100px;
   margin: 3px;
   border-radius: 25px;
+  overflow: hidden;
 }
 
 #landing{
@@ -69,6 +73,15 @@ padding-top: 150px;
 padding-bottom: 150px;
 margin-bottom: 245px;
 font-size: 40px;
+
+}
+
+#intro{
+  padding-top: 100px;
+  padding-bottom: 150px;
+  font-size: 40px;
+  text-decoration-color: #0a5c49;
+  font-family: 'Bowlby One SC', cursive;
 }
 
 #bold{
